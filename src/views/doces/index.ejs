@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Gerenciamento de Doces</title>
+</head>
+
+<body>
+    <h1>Lista de Doces</h1>
+    <a href="/doces/novo">Cadastrar Novo Doce</a>
+    <br><br>
+
+    <table border="1" cellpadding="8" cellspacing="0">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Preço (R$)</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% if (doces.length===0) { %>
+                <tr>
+                    <td colspan="4">Nenhum doce cadastrado.</td>
+                </tr>
+                <% } else { %>
+                    <% doces.forEach(doce=> { %>
+                        <tr>
+                            <td>
+                                <%= doce.id %>
+                            </td>
+                            <td>
+                                <%= doce.nome %>
+                            </td>
+                            <td>
+                                <%= doce.preco.toFixed(2) %>
+                            </td>
+                            <td>
+                                <a href="/doces/<%= doce.id %>/editar">Editar</a>
+
+                                <!-- Formulário para simular DELETE via method-override -->
+                                <form action="/doces/<%= doce.id %>?_method=DELETE" method="POST"
+                                    style="display:inline;">
+                                    <button type="submit"
+                                        onclick="return confirm('Tem certeza que deseja excluir?')">Deletar</button>
+                                </form>
+                            </td>
+                        </tr>
+                        <% }) %>
+                            <% } %>
+        </tbody>
+    </table>
+</body>
+
+</html>

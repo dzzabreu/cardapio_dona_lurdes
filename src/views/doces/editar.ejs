@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Doce</title>
+</head>
+
+<body>
+    <h1>Editar Doce #<%= doce.id %>
+    </h1>
+
+    <!-- Rota com override para PUT -->
+    <form action="/doces/<%= doce.id %>?_method=PUT" method="POST">
+        <div>
+            <label for="nome">Nome do Doce:</label><br>
+            <input type="text" id="nome" name="nome" value="<%= doce.nome %>" required>
+        </div>
+        <br>
+        <div>
+            <label for="preco">Preço (R$):</label><br>
+            <input type="number" id="preco" name="preco" step="0.01" value="<%= doce.preco %>" required>
+        </div>
+        <br>
+        <button type="submit">Atualizar</button>
+        <a href="/doces">Cancelar</a>
+    </form>
+</body>
+
+</html>
