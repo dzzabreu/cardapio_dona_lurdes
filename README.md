@@ -42,6 +42,7 @@ cardapio_dona_lurdes/
 │   ├── prisma.js                # Instância única (Singleton) do PrismaClient
 │   └── server.js                # Configuração do Express, EJS, middlewares e servidor
 ├── .env                         # Variáveis de ambiente (não versionado)
+├── .env.example                 # Modelo de variáveis de ambiente (versionado)
 ├── .gitignore                   # Arquivos ignorados pelo Git (node_modules, .env, dev.db)
 ├── package.json                 # Dependências e scripts de execução
 └── README.md                    # Documentação do projeto
